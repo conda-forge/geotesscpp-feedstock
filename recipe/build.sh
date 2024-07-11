@@ -10,5 +10,6 @@ cp lib/* $PREFIX/lib/
 # copy headers into standard location
 mkdir -p $PREFIX/include/geotesscpp
 cp GeoTessCPP/include/* $PREFIX/include/geotesscpp
+cp GeoTessCPPExamples/include/AK135Model.h $PREFIX/include/geotesscpp
 cp GeoTessAmplitudeCPP/include/* $PREFIX/include/geotesscpp
 

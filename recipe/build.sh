@@ -2,7 +2,23 @@
 
 set -e
 
-make all CC=${CC}
+# Put conda-build compiler flags into a variable used in the Makefile by 
+# overwriting it, including some of what it included originally.
+# Hopefully, this will pass @rpath and make the library relocatable.
+
+# CCFLAGS="${CFLAGS} ${CXXFLAGS} ${LDFLAGS} -m64 -O3"
+CCFLAGS="${CXXFLAGS} ${LDFLAGS} -m64 -O3"
+
+if [[ `uname` == 'Linux' ]]; then
+    # g++
+    CCFLAGS="${CCFLAGS} -DLinux"
+else
+    # Apple Clang
+    CCFLAGS="${CCFLAGS} -DDarwin"
+fi
+
+make all CC=${CC} CCFLAGS=${CCFLAGS}
+# make all CC=${CC} CCFLAGS=${CCFLAGS} LIB=${PREFIX}/lib
 
 # copy dynamic libraries into standard location
 cp lib/* $PREFIX/lib/

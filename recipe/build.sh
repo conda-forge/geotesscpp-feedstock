@@ -8,15 +8,16 @@ set -e
 # relocatable.
 
 # CCFLAGS="${CFLAGS} ${CXXFLAGS} ${LDFLAGS} -m64 -O3"
-CCFLAGS="${CXXFLAGS} ${LDFLAGS} -m64 -O3"
+# CCFLAGS="${CXXFLAGS} ${LDFLAGS} -m64 -O3"
+CCFLAGS="${CXXFLAGS} ${LDFLAGS}"
 
-if [[ `uname` == 'Linux' ]]; then
-    # g++
-    CCFLAGS="${CCFLAGS} -DLinux"
-else
-    # Apple Clang
-    CCFLAGS="${CCFLAGS} -DDarwin"
-fi
+# if [[ `uname` == 'Linux' ]]; then
+#     # g++
+#     CCFLAGS="${CCFLAGS} -DLinux"
+# else
+#     # Apple Clang
+#     CCFLAGS="${CCFLAGS} -DDarwin"
+# fi
 
 echo "make all CC=${CC} CCFLAGS=${CCFLAGS}"
 make all CC=${CC} CCFLAGS=${CCFLAGS}

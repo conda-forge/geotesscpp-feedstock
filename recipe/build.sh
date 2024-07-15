@@ -2,9 +2,10 @@
 
 set -e
 
-# Put conda-build compiler flags into a variable used in the Makefile by 
-# overwriting it, including some of what it included originally.
-# Hopefully, this will pass @rpath and make the library relocatable.
+# Put conda-build compiler flags into a variable already used in the
+# Makefile by overriding it, including some of what it included originally.
+# Hopefully, this will pass conda-build's @rpath and make the library
+# relocatable.
 
 # CCFLAGS="${CFLAGS} ${CXXFLAGS} ${LDFLAGS} -m64 -O3"
 CCFLAGS="${CXXFLAGS} ${LDFLAGS} -m64 -O3"

@@ -18,6 +18,9 @@ else
     CCFLAGS="${CCFLAGS} -DDarwin"
 fi
 
+echo "CC ${CC}"
+echo "CCFLAGS  ${CCFLAGS}"
+
 make all CC=${CC} CCFLAGS=${CCFLAGS}
 # make all CC=${CC} CCFLAGS=${CCFLAGS} LIB=${PREFIX}/lib
 

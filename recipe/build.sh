@@ -20,7 +20,7 @@ CCFLAGS="${CXXFLAGS} ${LDFLAGS}"
 # fi
 
 echo "make all CC=${CC} CCFLAGS=${CCFLAGS}"
-make all CC=${CC} CCFLAGS=${CCFLAGS}
+make all CC=${CC} CCFLAGS="${CCFLAGS}"
 # make all CC=${CC} CCFLAGS=${CCFLAGS} LIB=${PREFIX}/lib
 
 # copy dynamic libraries into standard location

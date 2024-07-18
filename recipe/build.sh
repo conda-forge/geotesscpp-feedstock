@@ -18,9 +18,7 @@ CCFLAGS="${CXXFLAGS} ${LDFLAGS}"
 # LIB is the output location of the library, which also tells linking programs
 # where to look for it.  $PREFIX is an absolute path on the build machine that
 # should be overwritten by patchelf or install_name_tool to make it relocatable.
-LIB=$PREFIX/lib
-# echo "make libraries CC=${CC} LIB=${LIB} CCFLAGS=${CCFLAGS}"
-make libraries CC=${CC} LIB=${LIB} CCFLAGS="${CCFLAGS}"
+make libraries CC=${CC} LIB=${PREFIX}/lib CCFLAGS="${CCFLAGS}"
 
 # copy dynamic libraries into standard location
 # This should be done already if LIB is set properly

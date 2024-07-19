@@ -10,7 +10,7 @@ source:
   sha256: 64a50ea5c40609a7e965a2c33a4aacfff03ffa5de5b94d81bf9c6fab13ef7c59
 
 build:
-  number: 2
+  number: 3
   skip: True  # [win]
 
 requirements:
@@ -20,9 +20,15 @@ requirements:
     - make
 
 test:
+  requires:
+    - binutils
   commands:
     - test -f $PREFIX/lib/libgeotesscpp$SHLIB_EXT  # [unix]
     - test -f $PREFIX/lib/libgeotessamplitudecpp$SHLIB_EXT  # [unix]
+    - objdump -p $PREFIX/lib/libgeotesscpp$SHLIB_EXT  # [osx]
+    - objdump -p $PREFIX/lib/libgeotessamplitudecpp$SHLIB_EXT  # [osx]
+    - readelf -d -r $PREFIX/lib/libgeotesscpp$SHLIB_EXT  # [linux]
+    - readelf -d -r $PREFIX/lib/libgeotessamplitudecpp$SHLIB_EXT  # [linux]
 
 about:
   home: https://www.sandia.gov/geotess/ 

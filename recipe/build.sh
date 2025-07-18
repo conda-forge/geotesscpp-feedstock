@@ -25,11 +25,13 @@ make libraries CC=${CC} LIB=${PREFIX}/lib CCFLAGS="${CCFLAGS}"
 # cp lib/* $PREFIX/lib/
 
 # See if the absolute paths were properly patched.
-if [[ `uname` == 'Linux' ]]; then
-    readelf -d -r $PREFIX/lib/libgeotess*
-else
-    objdump -p $PREFIX/lib/libgeotess*
-fi
+# this is done in meta.yaml, maybe skip here
+# if [[ `uname` == 'Linux' ]]; then
+#     readelf -d -r $PREFIX/lib/libgeotess*
+# else
+#     objdump -p $PREFIX/lib/libgeotess*
+#     # look for "name" to be the proper absolute path
+# fi
 
 # copy headers into standard location
 mkdir -p $PREFIX/include/geotesscpp

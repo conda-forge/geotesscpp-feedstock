@@ -25,8 +25,8 @@ test:
   commands:
     - test -f $PREFIX/lib/libgeotesscpp$SHLIB_EXT  # [unix]
     - test -f $PREFIX/lib/libgeotessamplitudecpp$SHLIB_EXT  # [unix]
-    - objdump -p $PREFIX/lib/libgeotesscpp$SHLIB_EXT  # [osx]
-    - objdump -p $PREFIX/lib/libgeotessamplitudecpp$SHLIB_EXT  # [osx]
+    - objdump -p $PREFIX/lib/libgeotesscpp$SHLIB_EXT  # [osx and x86_64]
+    - objdump -p $PREFIX/lib/libgeotessamplitudecpp$SHLIB_EXT  # [osx and x86_64]
     - readelf -d -r $PREFIX/lib/libgeotesscpp$SHLIB_EXT  # [linux]
     - readelf -d -r $PREFIX/lib/libgeotessamplitudecpp$SHLIB_EXT  # [linux]
 
